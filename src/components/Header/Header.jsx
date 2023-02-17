@@ -2,7 +2,7 @@ import React from 'react'
 import images from '../../constants/images'
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
-import { app } from '../../../firebase.config'
+import { app } from '../../firebase.config'
 
 import { MdShoppingBasket } from 'react-icons/md'
 import { motion } from 'framer-motion'
