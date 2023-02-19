@@ -8,6 +8,9 @@ import Loader from '../Loader/Loader.jsx';
 import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../../firebase.config.js';
 import { getAllFoodItems, saveItem } from '../../utils/firebaseFunctions.js';
+import { actionType } from "../../context/reduser.js";
+import { useStateValue } from "../../context/StateProvider.jsx";
+
 
 function CreateContainer() {
 
@@ -20,6 +23,7 @@ function CreateContainer() {
     const [alertStatus, setAlertStatus] = useState("danger");
     const [msg, setMsg] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [{ foodItems }, dispatch] = useStateValue();
 
     const uploadImage = (e) => {
         setIsLoading(true);
@@ -119,6 +123,16 @@ function CreateContainer() {
                 setIsLoading(false);
             }, 4000);
         }
+        fetchData();
+    };
+
+    const fetchData = async () => {
+        await getAllFoodItems().then((data) => {
+            dispatch({
+                type: actionType.SET_FOOD_ITEMS,
+                foodItems: data,
+            });
+        });
     };
 
     return (
