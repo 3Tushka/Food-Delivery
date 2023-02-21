@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import RowContainer from '../RowContainer/RowContainer';
 import { useStateValue } from '../../context/StateProvider';
+import MenuContainer from '../Menu/MenuContainer';
 
 function MainContainer() {
 
@@ -35,6 +36,8 @@ function MainContainer() {
                 </div>
                 <RowContainer flag={true} data={foodItems?.filter(n => n.category === 'fruits')} />
             </section>
+
+            <MenuContainer />
         </div>
     )
 }
