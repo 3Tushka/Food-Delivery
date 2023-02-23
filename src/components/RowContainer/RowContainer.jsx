@@ -9,8 +9,6 @@ import NotFound from '../../assets/images/NotFound.svg';
 const RowContainer = ({ flag, data, scrollValue }) => {
     const rowContainer = useRef();
 
-    console.log(data);
-
     const [items, setItems] = useState([]);
 
     const [{ cartItems }, dispatch] = useStateValue();

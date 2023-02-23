@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HomeContainer from '../HomeContainer/HomeContainer'
 import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import RowContainer from '../RowContainer/RowContainer';
 import { useStateValue } from '../../context/StateProvider';
 import MenuContainer from '../Menu/MenuContainer';
+import CartContainer from '../CartContainer/CartContainer';
 
 function MainContainer() {
 
-    const [{ foodItems }, dispatch] = useStateValue();
+    const [{ foodItems, cartShow }, dispatch] = useStateValue();
+    const [scrollValue, setScrollValue] = useState(0);
+
+    useEffect(() => { }, [scrollValue, cartShow]);
 
     return (
         <div className="flex w-full h-full flex-col items-center justify-center">
@@ -38,6 +42,10 @@ function MainContainer() {
             </section>
 
             <MenuContainer />
+
+            {cartShow && (
+                <CartContainer />
+            )}
         </div>
     )
 }

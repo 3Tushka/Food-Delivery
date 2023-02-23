@@ -4,3 +4,5 @@ export { default as CreateContainer } from "./CreateContainer/CreateContainer.js
 export { default as HomeContainer } from "./HomeContainer/HomeContainer.jsx";
 export { default as Loader } from "./Loader/Loader.jsx";
 export { default as MenuContainer } from "./Menu/MenuContainer.jsx";
+export { default as CartContainer } from "./CartContainer/CartContainer.jsx";
+export { default as CartItem } from "./CartItem/CartItem.jsx";
